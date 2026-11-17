@@ -1,0 +1,1862 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stackling.local/protocol/schema.json",
+  "$defs": {
+    "protocol": {
+      "const": "stackling.policy"
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "profileId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "environmentFingerprint": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "config": {
+          "$ref": "#/$defs/config"
+        },
+        "io": {
+          "type": "object",
+          "properties": {
+            "rgb": {
+              "const": "png-rgb8"
+            },
+            "depth": {
+              "const": "gzip-u16le-mm-zero-invalid"
+            },
+            "action": {
+              "const": "absolute-joints-rad-gap-m"
+            },
+            "state": {
+              "const": "measured-joints-rad-gap-m"
+            }
+          },
+          "required": [
+            "rgb",
+            "depth",
+            "action",
+            "state"
+          ],
+          "additionalProperties": false
+        },
+        "trainingAppearance": {
+          "$ref": "#/$defs/appearance"
+        },
+        "trainingTasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/taskCase"
+          }
+        }
+      },
+      "required": [
+        "profileId",
+        "environmentFingerprint",
+        "config",
+        "io",
+        "trainingAppearance",
+        "trainingTasks"
+      ],
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "environment": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": "stackling-v5.4"
+            },
+            "physicsHz": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tableSize": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "tableSupport": {
+              "enum": [
+                "legs",
+                "sled"
+              ]
+            },
+            "tableDepth": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "tableTop": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "tableThickness": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "friction": {
+              "type": "number",
+              "minimum": 0
+            },
+            "robot": {
+              "type": "object",
+              "properties": {
+                "base": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "axes": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "minItems": 6,
+                  "maxItems": 6
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 6,
+                  "maxItems": 6
+                },
+                "limits": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "minItems": 6,
+                  "maxItems": 6
+                },
+                "jointSpeed": {
+                  "type": "number"
+                },
+                "toolLength": {
+                  "type": "number"
+                },
+                "fingerLength": {
+                  "type": "number"
+                },
+                "fingerWidth": {
+                  "type": "number"
+                },
+                "fingerDepth": {
+                  "type": "number"
+                },
+                "gap": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "home": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "z": {
+                      "type": "number"
+                    },
+                    "gap": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z",
+                    "gap"
+                  ],
+                  "additionalProperties": false
+                },
+                "speed": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "z": {
+                      "type": "number"
+                    },
+                    "gap": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "z",
+                    "gap"
+                  ],
+                  "additionalProperties": false
+                },
+                "homeJoints": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 6,
+                  "maxItems": 6
+                },
+                "jointAcceleration": {
+                  "type": "number"
+                },
+                "keyboardSpeed": {
+                  "type": "number"
+                },
+                "armMotor": {
+                  "type": "object",
+                  "properties": {
+                    "stiffness": {
+                      "type": "number"
+                    },
+                    "damping": {
+                      "type": "number"
+                    },
+                    "maxTorque": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 6,
+                      "maxItems": 6
+                    }
+                  },
+                  "required": [
+                    "stiffness",
+                    "damping",
+                    "maxTorque"
+                  ],
+                  "additionalProperties": false
+                },
+                "fingerMotor": {
+                  "type": "object",
+                  "properties": {
+                    "stiffness": {
+                      "type": "number"
+                    },
+                    "damping": {
+                      "type": "number"
+                    },
+                    "maxForce": {
+                      "type": "number"
+                    },
+                    "couplingStiffness": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "couplingDamping": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "stiffness",
+                    "damping",
+                    "maxForce",
+                    "couplingStiffness",
+                    "couplingDamping"
+                  ],
+                  "additionalProperties": false
+                },
+                "mount": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "const": "human-scale-upper-body-v1"
+                    },
+                    "column": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        },
+                        "depth": {
+                          "type": "number"
+                        },
+                        "bottom": {
+                          "type": "number"
+                        },
+                        "top": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z",
+                        "width",
+                        "depth",
+                        "bottom",
+                        "top"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "topPlate": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        },
+                        "depth": {
+                          "type": "number"
+                        },
+                        "thickness": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z",
+                        "y",
+                        "width",
+                        "depth",
+                        "thickness"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "neck": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "z": {
+                          "type": "number"
+                        },
+                        "radius": {
+                          "type": "number"
+                        },
+                        "bottom": {
+                          "type": "number"
+                        },
+                        "top": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "z",
+                        "radius",
+                        "bottom",
+                        "top"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "beam": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "to": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "width": {
+                          "type": "number"
+                        },
+                        "height": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "from",
+                        "to",
+                        "width",
+                        "height"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "column",
+                    "topPlate",
+                    "neck",
+                    "beam"
+                  ],
+                  "additionalProperties": false
+                },
+                "visual": {
+                  "type": "object",
+                  "properties": {
+                    "armRadius": {
+                      "type": "number"
+                    },
+                    "jointRadius": {
+                      "type": "number"
+                    },
+                    "wristRadius": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "armRadius",
+                    "jointRadius",
+                    "wristRadius"
+                  ],
+                  "additionalProperties": false
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "yawLimit": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 0.8
+                    },
+                    "pitchLimit": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 0.55
+                    },
+                    "speed": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "acceleration": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "motor": {
+                      "type": "object",
+                      "properties": {
+                        "stiffness": {
+                          "type": "number"
+                        },
+                        "damping": {
+                          "type": "number"
+                        },
+                        "maxTorque": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 2,
+                          "maxItems": 2
+                        }
+                      },
+                      "required": [
+                        "stiffness",
+                        "damping",
+                        "maxTorque"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "jerk": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "required": [
+                    "yawLimit",
+                    "pitchLimit",
+                    "speed",
+                    "acceleration",
+                    "motor",
+                    "jerk"
+                  ],
+                  "additionalProperties": false
+                },
+                "jointJerk": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "inertials": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "arms": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/inertial"
+                      },
+                      "minItems": 6,
+                      "maxItems": 6
+                    },
+                    "finger": {
+                      "$ref": "#/$defs/inertial"
+                    },
+                    "yaw": {
+                      "$ref": "#/$defs/inertial"
+                    },
+                    "torso": {
+                      "$ref": "#/$defs/inertial"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "arms",
+                    "finger",
+                    "yaw",
+                    "torso"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "base",
+                "axes",
+                "links",
+                "limits",
+                "jointSpeed",
+                "toolLength",
+                "fingerLength",
+                "fingerWidth",
+                "fingerDepth",
+                "gap",
+                "home",
+                "speed",
+                "homeJoints",
+                "jointAcceleration",
+                "keyboardSpeed",
+                "armMotor",
+                "fingerMotor",
+                "mount",
+                "visual",
+                "body",
+                "inertials",
+                "jointJerk"
+              ],
+              "additionalProperties": false
+            },
+            "solver": {
+              "type": "object",
+              "properties": {
+                "iterations": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "internalPgsIterations": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "iterations",
+                "internalPgsIterations"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "version",
+            "physicsHz",
+            "tableSize",
+            "tableTop",
+            "tableThickness",
+            "friction",
+            "robot",
+            "tableDepth",
+            "tableSupport",
+            "solver"
+          ],
+          "additionalProperties": false
+        },
+        "camera": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "enum": [
+                "N",
+                "NE",
+                "E",
+                "SE",
+                "S",
+                "SW",
+                "W",
+                "NW"
+              ]
+            },
+            "distance": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "target": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "fov": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "exclusiveMaximum": 150
+            },
+            "near": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "far": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 65
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4096
+            },
+            "heightPixels": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4096
+            },
+            "depth": {
+              "type": "boolean"
+            },
+            "mount": {
+              "enum": [
+                "external",
+                "head"
+              ]
+            },
+            "head": {
+              "type": "object",
+              "properties": {
+                "pitch": {
+                  "type": "number",
+                  "minimum": 40,
+                  "maximum": 70
+                },
+                "fov": {
+                  "type": "number",
+                  "minimum": 40,
+                  "maximum": 100
+                },
+                "near": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "pitch",
+                "fov",
+                "near"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "position",
+            "distance",
+            "height",
+            "target",
+            "fov",
+            "near",
+            "far",
+            "width",
+            "heightPixels",
+            "depth",
+            "mount",
+            "head"
+          ],
+          "additionalProperties": false
+        },
+        "run": {
+          "type": "object",
+          "properties": {
+            "controlHz": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "observationHz": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "controlHz",
+            "observationHz"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "environment",
+        "camera",
+        "run"
+      ],
+      "additionalProperties": false
+    },
+    "message": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "hello"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "token": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "token"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "manifest"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "manifest": {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "$ref": "#/$defs/protocol"
+                },
+                "policyId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "modelRevision": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "profile": {
+                  "$ref": "#/$defs/profile"
+                },
+                "profileHash": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "protocol",
+                "policyId",
+                "modelRevision",
+                "profile",
+                "profileHash"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "manifest"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "configure"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "profileHash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "calibration": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "intrinsics": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "cameraToWorld": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 16,
+                  "maxItems": 16
+                },
+                "position": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "target": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "near": {
+                  "type": "number"
+                },
+                "far": {
+                  "type": "number"
+                },
+                "pixelOrigin": {
+                  "const": "top-left"
+                },
+                "pixelCenters": {
+                  "const": "half-integers"
+                },
+                "cameraAxes": {
+                  "const": "right, up, backward (Three.js); depth is positive optical-axis distance"
+                },
+                "depthScaleMeters": {
+                  "const": 0.001
+                },
+                "depthInvalid": {
+                  "const": 0
+                }
+              },
+              "required": [
+                "width",
+                "height",
+                "intrinsics",
+                "cameraToWorld",
+                "position",
+                "target",
+                "near",
+                "far",
+                "pixelOrigin",
+                "pixelCenters",
+                "cameraAxes",
+                "depthScaleMeters",
+                "depthInvalid"
+              ],
+              "additionalProperties": false
+            },
+            "configuration": {
+              "$ref": "#/$defs/config"
+            },
+            "configurationHash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "profileHash",
+            "configuration",
+            "configurationHash",
+            "calibration"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "configured"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "configurationHash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "configurationHash"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "episode_start"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "configHash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "actual": {
+              "$ref": "#/$defs/actual"
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "actual",
+            "configHash"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "episode_ready"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "observation"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tick": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "time": {
+              "type": "number"
+            },
+            "state": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 16,
+              "maxItems": 16
+            },
+            "rgbBytes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "depthBytes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "cameraToWorld": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 16,
+              "maxItems": 16
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "tick",
+            "time",
+            "state",
+            "rgbBytes",
+            "depthBytes",
+            "cameraToWorld"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "observed"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tick": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "tick"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "act"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tick": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "dt": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "observationId": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "tick",
+            "dt",
+            "observationId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "action"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "tick": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "action": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 16,
+              "maxItems": 16
+            },
+            "continuous": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "tick",
+            "action",
+            "continuous"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "episode_end"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "summary": {
+              "type": "object",
+              "properties": {
+                "outcome": {
+                  "enum": [
+                    "success",
+                    "timeout",
+                    "stopped",
+                    "error",
+                    "completed",
+                    "teacher-failed"
+                  ]
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "ticks": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "seconds": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "outcome",
+                "reason",
+                "ticks",
+                "seconds"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "summary"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "episode_ended"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "error"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            },
+            "episodeId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requestId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "code": {
+              "enum": [
+                "SERVER_BUSY",
+                "AUTH_FAILED",
+                "PROTOCOL_MISMATCH",
+                "INVALID_MESSAGE",
+                "CONFIG_MISMATCH",
+                "INVALID_STATE",
+                "INVALID_ACTION",
+                "MODEL_ERROR",
+                "TIMEOUT",
+                "DISCONNECTED",
+                "CANCELLED",
+                "ENVIRONMENT_MISMATCH"
+              ]
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "detail"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "sessionId",
+            "episodeId",
+            "requestId",
+            "code",
+            "params"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "appearance": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "contentHash"
+      ],
+      "additionalProperties": false
+    },
+    "scene": {
+      "type": "object",
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "shape": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "cuboid"
+                      },
+                      "size": {
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "size"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "cylinder"
+                      },
+                      "radius": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "height": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "radius",
+                      "height"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "sphere"
+                      },
+                      "radius": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "radius"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "color": {
+                "enum": [
+                  "red",
+                  "yellow",
+                  "teal",
+                  "purple",
+                  "green",
+                  "blue"
+                ]
+              },
+              "rotation": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "z": {
+                    "type": "number"
+                  },
+                  "w": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "z",
+                  "w"
+                ],
+                "additionalProperties": false
+              },
+              "density": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "friction": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "id",
+              "shape",
+              "color",
+              "rotation",
+              "density",
+              "friction"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "maxStackHeight": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "region": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "clearance": {
+          "type": "boolean"
+        },
+        "maxAttempts": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "objects",
+        "maxStackHeight",
+        "region",
+        "clearance",
+        "maxAttempts"
+      ],
+      "additionalProperties": false
+    },
+    "task": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "enum": [
+                "en",
+                "zh"
+              ]
+            },
+            "stableSeconds": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "kind": {
+              "const": "tower"
+            },
+            "order": {
+              "enum": [
+                "any",
+                "size-ascending",
+                "size-descending"
+              ]
+            }
+          },
+          "required": [
+            "language",
+            "stableSeconds",
+            "kind",
+            "order"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "enum": [
+                "en",
+                "zh"
+              ]
+            },
+            "stableSeconds": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "kind": {
+              "const": "partition-count"
+            },
+            "counts": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "language",
+            "stableSeconds",
+            "kind",
+            "counts"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "enum": [
+                "en",
+                "zh"
+              ]
+            },
+            "stableSeconds": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "kind": {
+              "const": "partition-color"
+            }
+          },
+          "required": [
+            "language",
+            "stableSeconds",
+            "kind"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "enum": [
+                "en",
+                "zh"
+              ]
+            },
+            "stableSeconds": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "kind": {
+              "const": "max-height"
+            }
+          },
+          "required": [
+            "language",
+            "stableSeconds",
+            "kind"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "prompt": {
+      "type": "object",
+      "properties": {
+        "templateId": {
+          "type": "string"
+        },
+        "templateVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "language": {
+          "enum": [
+            "en",
+            "zh"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "templateId",
+        "templateVersion",
+        "language",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "taskCase": {
+      "type": "object",
+      "properties": {
+        "scene": {
+          "$ref": "#/$defs/scene"
+        },
+        "task": {
+          "$ref": "#/$defs/task"
+        },
+        "maxSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "prompt": {
+          "$ref": "#/$defs/prompt"
+        }
+      },
+      "required": [
+        "scene",
+        "task",
+        "maxSeconds",
+        "prompt"
+      ],
+      "additionalProperties": false
+    },
+    "actual": {
+      "type": "object",
+      "properties": {
+        "configuration": {
+          "$ref": "#/$defs/config"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "appearance": {
+          "$ref": "#/$defs/appearance"
+        },
+        "taskCase": {
+          "$ref": "#/$defs/taskCase"
+        },
+        "cameraSeed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "configuration",
+        "seed",
+        "appearance",
+        "taskCase",
+        "cameraSeed"
+      ],
+      "additionalProperties": false
+    },
+    "inertial": {
+      "type": "object",
+      "properties": {
+        "mass": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "centerOfMass": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "principalInertia": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "inertiaFrame": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "mass",
+        "centerOfMass",
+        "principalInertia",
+        "inertiaFrame"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

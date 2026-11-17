@@ -1,0 +1,109 @@
+{
+  "environment": {
+    "version": "stackling-v5.4",
+    "physicsHz": 120,
+    "tableSize": 1.1,
+    "tableTop": 0.75,
+    "tableThickness": 0.045,
+    "friction": 0.8,
+    "tableDepth": 0.7,
+    "tableSupport": "sled",
+    "solver": {
+      "iterations": 48,
+      "internalPgsIterations": 16
+    }
+  },
+  "teacher": {
+    "transitSpeed": 0.2,
+    "precisionSpeed": 0.09,
+    "contactSeconds": 0.22,
+    "settleSeconds": 0.2,
+    "policy": {
+      "waistTravel": 1.2,
+      "waistReversal": 0.6,
+      "waistPosture": 0.3,
+      "armTravel": 0.2,
+      "wristTravel": 0.12,
+      "taskValue": 1,
+      "topGrasp": 0.12,
+      "sideGrasp": 0.04
+    },
+    "grasp": {
+      "safetyFactor": 3,
+      "minNormalForce": 1,
+      "forceGain": 0.004,
+      "slipSpeed": 0.01
+    }
+  },
+  "camera": {
+    "position": "SE",
+    "distance": 0.5,
+    "height": 1.8,
+    "target": [-0.2, 0.87, -0.12],
+    "fov": 60,
+    "near": 0.1,
+    "far": 5,
+    "width": 320,
+    "heightPixels": 240,
+    "depth": false,
+    "mount": "external",
+    "head": {
+      "pitch": 55,
+      "fov": 70,
+      "near": 0.02
+    }
+  },
+  "run": {
+    "seed": 42,
+    "cameraSeed": 42,
+    "controlHz": 20,
+    "observationHz": 10,
+    "maxSeconds": 180
+  },
+  "scene": {
+    "maxStackHeight": 0.3,
+    "region": [-0.38, 0.38, -0.25, 0.12],
+    "clearance": true,
+    "maxAttempts": 10000,
+    "objects": [
+      {
+        "id": "object-0",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.05, 0.05, 0.05]
+        },
+        "color": "red",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-1",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.05, 0.05, 0.05]
+        },
+        "color": "yellow",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      }
+    ]
+  },
+  "task": {
+    "kind": "tower",
+    "order": "any",
+    "language": "en",
+    "stableSeconds": 1
+  }
+}

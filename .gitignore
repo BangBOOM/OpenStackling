@@ -1,0 +1,20 @@
+node_modules/
+dist/
+data/
+.tmp/
+tmp/
+.DS_Store
+
+# Generated reports, logs and validation captures
+reports/
+playwright-report/
+test-results/
+coverage/
+/target/
+*.log
+
+# Python policy environment
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/

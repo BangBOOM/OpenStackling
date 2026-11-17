@@ -1,0 +1,9 @@
+{
+  "camera": {
+    "mount": "head",
+    "head": { "pitch": 60, "fov": 70, "near": 0.02 },
+    "width": 504,
+    "heightPixels": 392,
+    "depth": false
+  }
+}

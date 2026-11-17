@@ -1,0 +1,89 @@
+{
+  "scene": {
+    "objects": [
+      {
+        "id": "object-0",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "red",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-1",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "yellow",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-2",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "teal",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-3",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "purple",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-4",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "green",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      }
+    ]
+  },
+  "run": {
+    "maxSeconds": 240
+  }
+}

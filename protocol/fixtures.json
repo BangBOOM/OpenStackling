@@ -1,0 +1,2043 @@
+{
+  "profile": {
+    "profileId": "stackling-policy-fixture",
+    "environmentFingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "trainingAppearance": {
+      "id": "island",
+      "version": "4.3.0",
+      "contentHash": "b243737ff90076b4613bb3d4ae580bf03a8b897f3b558c296b10762732c5dd20"
+    },
+    "config": {
+      "environment": {
+        "version": "stackling-v5.4",
+        "physicsHz": 120,
+        "tableSize": 1.1,
+        "tableTop": 0.75,
+        "tableThickness": 0.045,
+        "friction": 0.8,
+        "tableDepth": 0.7,
+        "tableSupport": "sled",
+        "robot": {
+          "base": [
+            -0.28,
+            1.25,
+            -0.55
+          ],
+          "axes": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "links": [
+            0,
+            0.33,
+            0.17,
+            0.12,
+            0.03,
+            0.03
+          ],
+          "limits": [
+            [
+              -3.14,
+              3.14
+            ],
+            [
+              -2.8,
+              2.8
+            ],
+            [
+              0.12,
+              2.9
+            ],
+            [
+              -3.141592653589793,
+              3.141592653589793
+            ],
+            [
+              -4.2,
+              4.2
+            ],
+            [
+              -6.28318530718,
+              6.28318530718
+            ]
+          ],
+          "jointSpeed": 1.2,
+          "toolLength": 0.11,
+          "fingerLength": 0.075,
+          "fingerWidth": 0.008,
+          "fingerDepth": 0.022,
+          "gap": [
+            0.003,
+            0.09
+          ],
+          "home": {
+            "x": -0.28,
+            "y": 0.93,
+            "z": -0.33,
+            "gap": 0.045
+          },
+          "speed": {
+            "x": 0.12,
+            "y": 0.12,
+            "z": 0.12,
+            "gap": 0.1
+          },
+          "homeJoints": [
+            -1.5707963267948966,
+            -2.3484828606799435,
+            2.2003430953059127,
+            0,
+            -0.10186023462596916,
+            -3.141592653589793
+          ],
+          "jointAcceleration": 2.5,
+          "keyboardSpeed": 0.15,
+          "armMotor": {
+            "stiffness": 12000,
+            "damping": 160,
+            "maxTorque": [
+              180,
+              180,
+              180,
+              40,
+              40,
+              40
+            ]
+          },
+          "fingerMotor": {
+            "stiffness": 300,
+            "damping": 20,
+            "maxForce": 30,
+            "couplingStiffness": 600,
+            "couplingDamping": 40
+          },
+          "mount": {
+            "type": "human-scale-upper-body-v1",
+            "column": {
+              "x": 0,
+              "z": -0.6,
+              "width": 0.42,
+              "depth": 0.23,
+              "bottom": 0.8849999999999999,
+              "top": 1.395
+            },
+            "topPlate": {
+              "x": 0,
+              "z": -0.6,
+              "y": 0.0275,
+              "width": 0.38,
+              "depth": 0.34,
+              "thickness": 0.055
+            },
+            "neck": {
+              "x": 0,
+              "z": -0.6,
+              "radius": 0.045,
+              "bottom": 1.395,
+              "top": 1.4200000000000002
+            },
+            "beam": {
+              "from": [
+                -0.28,
+                1.25,
+                -0.66
+              ],
+              "to": [
+                0.28,
+                1.25,
+                -0.66
+              ],
+              "width": 0.045,
+              "height": 0.05
+            }
+          },
+          "visual": {
+            "armRadius": 0.034,
+            "jointRadius": 0.067,
+            "wristRadius": 0.025
+          },
+          "body": {
+            "yawLimit": 0.7,
+            "pitchLimit": 0.5,
+            "speed": 0.35,
+            "acceleration": 0.65,
+            "motor": {
+              "stiffness": 6000000,
+              "damping": 3000,
+              "maxTorque": [
+                1200,
+                1200
+              ]
+            },
+            "jerk": 8
+          },
+          "inertials": {
+            "source": "uniform-solids-estimate-v1",
+            "arms": [
+              {
+                "mass": 0.3,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000263953203,
+                  0.000263953203,
+                  0.000263953203
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 1,
+                "centerOfMass": [
+                  0.165000007,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000770666695,
+                  0.00739366608,
+                  0.00739366608
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.8,
+                "centerOfMass": [
+                  0.0850000009,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000616533391,
+                  0.00143493339,
+                  0.00143493339
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.08,
+                "centerOfMass": [
+                  0.0599999987,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.0000580800006,
+                  0.000125039995,
+                  0.000125039995
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.08,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.0000546133342,
+                  0.0000546133342,
+                  0.0000546133342
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.2,
+                "centerOfMass": [
+                  0.0474999994,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000239683344,
+                  0.000240833338,
+                  0.0000396833348
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "finger": {
+              "mass": 0.025,
+              "centerOfMass": [
+                0,
+                0,
+                0
+              ],
+              "principalInertia": [
+                0.00000114166676,
+                0.0000118520838,
+                0.0000127270823
+              ],
+              "inertiaFrame": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "yaw": {
+              "mass": 1,
+              "centerOfMass": [
+                0,
+                0,
+                0
+              ],
+              "principalInertia": [
+                0.00144,
+                0.00144,
+                0.00144
+              ],
+              "inertiaFrame": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "torso": {
+              "mass": 12,
+              "centerOfMass": [
+                0,
+                0.332276165,
+                0.00556142116
+              ],
+              "principalInertia": [
+                0.181026101,
+                0.392808259,
+                0.482119471
+              ],
+              "inertiaFrame": [
+                -0.0231770463,
+                -0.0231770463,
+                0.706726909,
+                -0.706726789
+              ]
+            }
+          },
+          "jointJerk": 80
+        },
+        "solver": {
+          "iterations": 48,
+          "internalPgsIterations": 16
+        }
+      },
+      "camera": {
+        "position": "SE",
+        "distance": 0.5,
+        "height": 1.8,
+        "target": [
+          -0.2,
+          0.87,
+          -0.12
+        ],
+        "fov": 60,
+        "near": 0.1,
+        "far": 5,
+        "width": 320,
+        "heightPixels": 240,
+        "depth": false,
+        "mount": "external",
+        "head": {
+          "pitch": 55,
+          "fov": 70,
+          "near": 0.02
+        }
+      },
+      "run": {
+        "controlHz": 20,
+        "observationHz": 10
+      }
+    },
+    "trainingTasks": [
+      {
+        "scene": {
+          "maxStackHeight": 0.3,
+          "region": [
+            -0.38,
+            0.38,
+            -0.25,
+            0.12
+          ],
+          "clearance": true,
+          "maxAttempts": 10000,
+          "objects": [
+            {
+              "id": "object-0",
+              "shape": {
+                "kind": "cuboid",
+                "size": [
+                  0.05,
+                  0.05,
+                  0.05
+                ]
+              },
+              "color": "red",
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "density": 120,
+              "friction": 0.8
+            },
+            {
+              "id": "object-1",
+              "shape": {
+                "kind": "cuboid",
+                "size": [
+                  0.05,
+                  0.05,
+                  0.05
+                ]
+              },
+              "color": "yellow",
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "density": 120,
+              "friction": 0.8
+            }
+          ]
+        },
+        "task": {
+          "kind": "tower",
+          "order": "any",
+          "language": "en",
+          "stableSeconds": 3
+        },
+        "maxSeconds": 180,
+        "prompt": {
+          "templateId": "tower",
+          "templateVersion": 1,
+          "language": "en",
+          "text": "Stack all 2 equal-sized cubes into a single tower. Any order is allowed. Complete the task within 180 simulated seconds. Towers may be placed anywhere on the valid tabletop, with one cube per level. The robot must release all target towers, and all towers must remain stable together for 3 seconds within the time limit."
+        }
+      }
+    ],
+    "io": {
+      "rgb": "png-rgb8",
+      "depth": "gzip-u16le-mm-zero-invalid",
+      "action": "absolute-joints-rad-gap-m",
+      "state": "measured-joints-rad-gap-m"
+    }
+  },
+  "canonical": {
+    "numbers": [
+      333333333.3333333,
+      1e+30,
+      4.5,
+      0.002,
+      1e-27
+    ],
+    "string": "€$\u000f\nA\"B",
+    "literals": [
+      null,
+      true,
+      false
+    ]
+  },
+  "canonicalHash": "261f2a3a2ca16cdc6e49bec28abc3ebd3860bb315988f4f00ab020fefbab00da",
+  "cases": [
+    {
+      "path": "config.run.observationHz",
+      "value": 7
+    },
+    {
+      "path": "trainingTasks.0.scene.maxStackHeight",
+      "value": 0.01
+    },
+    {
+      "path": "config.camera.width",
+      "value": 4097
+    },
+    {
+      "path": "config.camera.near",
+      "value": 6
+    },
+    {
+      "path": "config.environment.robot.axes.0",
+      "value": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "path": "config.environment.robot.gap",
+      "value": [
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "path": "config.environment.robot.armMotor.maxTorque",
+      "value": [
+        1
+      ]
+    },
+    {
+      "path": "trainingTasks.0.scene.region",
+      "value": [
+        -1,
+        1,
+        -1,
+        1
+      ]
+    },
+    {
+      "path": "unknown",
+      "value": true
+    },
+    {
+      "path": "config.run.cameraSeed",
+      "value": -1
+    },
+    {
+      "path": "config.camera.fov",
+      "value": "60"
+    },
+    {
+      "path": "schemaVersion",
+      "value": 5
+    },
+    {
+      "path": "trainingAppearance.id",
+      "value": ""
+    },
+    {
+      "path": "trainingAppearance.version",
+      "value": ""
+    },
+    {
+      "path": "trainingAppearance.contentHash",
+      "value": "bad"
+    },
+    {
+      "path": "config.environment.robot.body.yawLimit",
+      "value": 0
+    },
+    {
+      "path": "config.environment.tableDepth",
+      "value": 0
+    },
+    {
+      "path": "config.environment.version",
+      "value": "unknown-environment"
+    },
+    {
+      "path": "config.environment.robot.body.motor.maxTorque",
+      "value": [
+        1200
+      ]
+    },
+    {
+      "path": "config.environment.robot.body.motor.maxTorque",
+      "value": [
+        0,
+        1200
+      ]
+    },
+    {
+      "path": "config.environment.robot.inertials.arms.0.principalInertia",
+      "value": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "path": "config.environment.robot.inertials.finger.mass",
+      "value": 0
+    },
+    {
+      "path": "config.environment.robot.inertials.torso.inertiaFrame",
+      "value": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "path": "config.environment.robot.inertials.source",
+      "value": " "
+    },
+    {
+      "path": "config.environment.robot.jointJerk",
+      "value": 0
+    },
+    {
+      "path": "config.environment.robot.fingerMotor.couplingStiffness",
+      "value": -1
+    }
+  ],
+  "actual": {
+    "configuration": {
+      "environment": {
+        "version": "stackling-v5.4",
+        "physicsHz": 120,
+        "tableSize": 1.1,
+        "tableTop": 0.75,
+        "tableThickness": 0.045,
+        "friction": 0.8,
+        "tableDepth": 0.7,
+        "tableSupport": "sled",
+        "robot": {
+          "base": [
+            -0.28,
+            1.25,
+            -0.55
+          ],
+          "axes": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "links": [
+            0,
+            0.33,
+            0.17,
+            0.12,
+            0.03,
+            0.03
+          ],
+          "limits": [
+            [
+              -3.14,
+              3.14
+            ],
+            [
+              -2.8,
+              2.8
+            ],
+            [
+              0.12,
+              2.9
+            ],
+            [
+              -3.141592653589793,
+              3.141592653589793
+            ],
+            [
+              -4.2,
+              4.2
+            ],
+            [
+              -6.28318530718,
+              6.28318530718
+            ]
+          ],
+          "jointSpeed": 1.2,
+          "toolLength": 0.11,
+          "fingerLength": 0.075,
+          "fingerWidth": 0.008,
+          "fingerDepth": 0.022,
+          "gap": [
+            0.003,
+            0.09
+          ],
+          "home": {
+            "x": -0.28,
+            "y": 0.93,
+            "z": -0.33,
+            "gap": 0.045
+          },
+          "speed": {
+            "x": 0.12,
+            "y": 0.12,
+            "z": 0.12,
+            "gap": 0.1
+          },
+          "homeJoints": [
+            -1.5707963267948966,
+            -2.3484828606799435,
+            2.2003430953059127,
+            0,
+            -0.10186023462596916,
+            -3.141592653589793
+          ],
+          "jointAcceleration": 2.5,
+          "keyboardSpeed": 0.15,
+          "armMotor": {
+            "stiffness": 12000,
+            "damping": 160,
+            "maxTorque": [
+              180,
+              180,
+              180,
+              40,
+              40,
+              40
+            ]
+          },
+          "fingerMotor": {
+            "stiffness": 300,
+            "damping": 20,
+            "maxForce": 30,
+            "couplingStiffness": 600,
+            "couplingDamping": 40
+          },
+          "mount": {
+            "type": "human-scale-upper-body-v1",
+            "column": {
+              "x": 0,
+              "z": -0.6,
+              "width": 0.42,
+              "depth": 0.23,
+              "bottom": 0.8849999999999999,
+              "top": 1.395
+            },
+            "topPlate": {
+              "x": 0,
+              "z": -0.6,
+              "y": 0.0275,
+              "width": 0.38,
+              "depth": 0.34,
+              "thickness": 0.055
+            },
+            "neck": {
+              "x": 0,
+              "z": -0.6,
+              "radius": 0.045,
+              "bottom": 1.395,
+              "top": 1.4200000000000002
+            },
+            "beam": {
+              "from": [
+                -0.28,
+                1.25,
+                -0.66
+              ],
+              "to": [
+                0.28,
+                1.25,
+                -0.66
+              ],
+              "width": 0.045,
+              "height": 0.05
+            }
+          },
+          "visual": {
+            "armRadius": 0.034,
+            "jointRadius": 0.067,
+            "wristRadius": 0.025
+          },
+          "body": {
+            "yawLimit": 0.7,
+            "pitchLimit": 0.5,
+            "speed": 0.35,
+            "acceleration": 0.65,
+            "motor": {
+              "stiffness": 6000000,
+              "damping": 3000,
+              "maxTorque": [
+                1200,
+                1200
+              ]
+            },
+            "jerk": 8
+          },
+          "inertials": {
+            "source": "uniform-solids-estimate-v1",
+            "arms": [
+              {
+                "mass": 0.3,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000263953203,
+                  0.000263953203,
+                  0.000263953203
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 1,
+                "centerOfMass": [
+                  0.165000007,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000770666695,
+                  0.00739366608,
+                  0.00739366608
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.8,
+                "centerOfMass": [
+                  0.0850000009,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000616533391,
+                  0.00143493339,
+                  0.00143493339
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.08,
+                "centerOfMass": [
+                  0.0599999987,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.0000580800006,
+                  0.000125039995,
+                  0.000125039995
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.08,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.0000546133342,
+                  0.0000546133342,
+                  0.0000546133342
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              {
+                "mass": 0.2,
+                "centerOfMass": [
+                  0.0474999994,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.000239683344,
+                  0.000240833338,
+                  0.0000396833348
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "finger": {
+              "mass": 0.025,
+              "centerOfMass": [
+                0,
+                0,
+                0
+              ],
+              "principalInertia": [
+                0.00000114166676,
+                0.0000118520838,
+                0.0000127270823
+              ],
+              "inertiaFrame": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "yaw": {
+              "mass": 1,
+              "centerOfMass": [
+                0,
+                0,
+                0
+              ],
+              "principalInertia": [
+                0.00144,
+                0.00144,
+                0.00144
+              ],
+              "inertiaFrame": [
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "torso": {
+              "mass": 12,
+              "centerOfMass": [
+                0,
+                0.332276165,
+                0.00556142116
+              ],
+              "principalInertia": [
+                0.181026101,
+                0.392808259,
+                0.482119471
+              ],
+              "inertiaFrame": [
+                -0.0231770463,
+                -0.0231770463,
+                0.706726909,
+                -0.706726789
+              ]
+            }
+          },
+          "jointJerk": 80
+        },
+        "solver": {
+          "iterations": 48,
+          "internalPgsIterations": 16
+        }
+      },
+      "camera": {
+        "position": "SE",
+        "distance": 0.5,
+        "height": 1.8,
+        "target": [
+          -0.2,
+          0.87,
+          -0.12
+        ],
+        "fov": 60,
+        "near": 0.1,
+        "far": 5,
+        "width": 320,
+        "heightPixels": 240,
+        "depth": false,
+        "mount": "external",
+        "head": {
+          "pitch": 55,
+          "fov": 70,
+          "near": 0.02
+        }
+      },
+      "run": {
+        "controlHz": 20,
+        "observationHz": 10
+      }
+    },
+    "taskCase": {
+      "scene": {
+        "maxStackHeight": 0.3,
+        "region": [
+          -0.38,
+          0.38,
+          -0.25,
+          0.12
+        ],
+        "clearance": true,
+        "maxAttempts": 10000,
+        "objects": [
+          {
+            "id": "object-0",
+            "shape": {
+              "kind": "cuboid",
+              "size": [
+                0.05,
+                0.05,
+                0.05
+              ]
+            },
+            "color": "red",
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "density": 120,
+            "friction": 0.8
+          },
+          {
+            "id": "object-1",
+            "shape": {
+              "kind": "cuboid",
+              "size": [
+                0.05,
+                0.05,
+                0.05
+              ]
+            },
+            "color": "yellow",
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "density": 120,
+            "friction": 0.8
+          }
+        ]
+      },
+      "task": {
+        "kind": "tower",
+        "order": "any",
+        "language": "en",
+        "stableSeconds": 3
+      },
+      "maxSeconds": 180,
+      "prompt": {
+        "templateId": "tower",
+        "templateVersion": 1,
+        "language": "en",
+        "text": "Stack all 2 equal-sized cubes into a single tower. Any order is allowed. Complete the task within 180 simulated seconds. Towers may be placed anywhere on the valid tabletop, with one cube per level. The robot must release all target towers, and all towers must remain stable together for 3 seconds within the time limit."
+      }
+    },
+    "seed": 42,
+    "cameraSeed": 42,
+    "appearance": {
+      "id": "island",
+      "version": "4.3.0",
+      "contentHash": "b243737ff90076b4613bb3d4ae580bf03a8b897f3b558c296b10762732c5dd20"
+    }
+  },
+  "actualHash": "506582021cb8cb1a0f9527de5b15692ceb8cb7695e6f7a2139cf4a0bedbf4532",
+  "calibrations": [
+    {
+      "mount": "external",
+      "config": {
+        "environment": {
+          "version": "stackling-v5.4",
+          "physicsHz": 120,
+          "tableSize": 1.1,
+          "tableTop": 0.75,
+          "tableThickness": 0.045,
+          "friction": 0.8,
+          "tableDepth": 0.7,
+          "tableSupport": "sled",
+          "robot": {
+            "base": [
+              -0.28,
+              1.25,
+              -0.55
+            ],
+            "axes": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "links": [
+              0,
+              0.33,
+              0.17,
+              0.12,
+              0.03,
+              0.03
+            ],
+            "limits": [
+              [
+                -3.14,
+                3.14
+              ],
+              [
+                -2.8,
+                2.8
+              ],
+              [
+                0.12,
+                2.9
+              ],
+              [
+                -3.141592653589793,
+                3.141592653589793
+              ],
+              [
+                -4.2,
+                4.2
+              ],
+              [
+                -6.28318530718,
+                6.28318530718
+              ]
+            ],
+            "jointSpeed": 1.2,
+            "toolLength": 0.11,
+            "fingerLength": 0.075,
+            "fingerWidth": 0.008,
+            "fingerDepth": 0.022,
+            "gap": [
+              0.003,
+              0.09
+            ],
+            "home": {
+              "x": -0.28,
+              "y": 0.93,
+              "z": -0.33,
+              "gap": 0.045
+            },
+            "speed": {
+              "x": 0.12,
+              "y": 0.12,
+              "z": 0.12,
+              "gap": 0.1
+            },
+            "homeJoints": [
+              -1.5707963267948966,
+              -2.3484828606799435,
+              2.2003430953059127,
+              0,
+              -0.10186023462596916,
+              -3.141592653589793
+            ],
+            "jointAcceleration": 2.5,
+            "keyboardSpeed": 0.15,
+            "armMotor": {
+              "stiffness": 12000,
+              "damping": 160,
+              "maxTorque": [
+                180,
+                180,
+                180,
+                40,
+                40,
+                40
+              ]
+            },
+            "fingerMotor": {
+              "stiffness": 300,
+              "damping": 20,
+              "maxForce": 30,
+              "couplingStiffness": 600,
+              "couplingDamping": 40
+            },
+            "mount": {
+              "type": "human-scale-upper-body-v1",
+              "column": {
+                "x": 0,
+                "z": -0.6,
+                "width": 0.42,
+                "depth": 0.23,
+                "bottom": 0.8849999999999999,
+                "top": 1.395
+              },
+              "topPlate": {
+                "x": 0,
+                "z": -0.6,
+                "y": 0.0275,
+                "width": 0.38,
+                "depth": 0.34,
+                "thickness": 0.055
+              },
+              "neck": {
+                "x": 0,
+                "z": -0.6,
+                "radius": 0.045,
+                "bottom": 1.395,
+                "top": 1.4200000000000002
+              },
+              "beam": {
+                "from": [
+                  -0.28,
+                  1.25,
+                  -0.66
+                ],
+                "to": [
+                  0.28,
+                  1.25,
+                  -0.66
+                ],
+                "width": 0.045,
+                "height": 0.05
+              }
+            },
+            "visual": {
+              "armRadius": 0.034,
+              "jointRadius": 0.067,
+              "wristRadius": 0.025
+            },
+            "body": {
+              "yawLimit": 0.7,
+              "pitchLimit": 0.5,
+              "speed": 0.35,
+              "acceleration": 0.65,
+              "motor": {
+                "stiffness": 6000000,
+                "damping": 3000,
+                "maxTorque": [
+                  1200,
+                  1200
+                ]
+              },
+              "jerk": 8
+            },
+            "inertials": {
+              "source": "uniform-solids-estimate-v1",
+              "arms": [
+                {
+                  "mass": 0.3,
+                  "centerOfMass": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000263953203,
+                    0.000263953203,
+                    0.000263953203
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 1,
+                  "centerOfMass": [
+                    0.165000007,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000770666695,
+                    0.00739366608,
+                    0.00739366608
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.8,
+                  "centerOfMass": [
+                    0.0850000009,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000616533391,
+                    0.00143493339,
+                    0.00143493339
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.08,
+                  "centerOfMass": [
+                    0.0599999987,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.0000580800006,
+                    0.000125039995,
+                    0.000125039995
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.08,
+                  "centerOfMass": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.0000546133342,
+                    0.0000546133342,
+                    0.0000546133342
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.2,
+                  "centerOfMass": [
+                    0.0474999994,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000239683344,
+                    0.000240833338,
+                    0.0000396833348
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "finger": {
+                "mass": 0.025,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.00000114166676,
+                  0.0000118520838,
+                  0.0000127270823
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "yaw": {
+                "mass": 1,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.00144,
+                  0.00144,
+                  0.00144
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "torso": {
+                "mass": 12,
+                "centerOfMass": [
+                  0,
+                  0.332276165,
+                  0.00556142116
+                ],
+                "principalInertia": [
+                  0.181026101,
+                  0.392808259,
+                  0.482119471
+                ],
+                "inertiaFrame": [
+                  -0.0231770463,
+                  -0.0231770463,
+                  0.706726909,
+                  -0.706726789
+                ]
+              }
+            },
+            "jointJerk": 80
+          },
+          "solver": {
+            "iterations": 48,
+            "internalPgsIterations": 16
+          }
+        },
+        "camera": {
+          "position": "SE",
+          "distance": 0.5,
+          "height": 1.8,
+          "target": [
+            -0.2,
+            0.87,
+            -0.12
+          ],
+          "fov": 60,
+          "near": 0.1,
+          "far": 5,
+          "width": 320,
+          "heightPixels": 240,
+          "depth": false,
+          "mount": "external",
+          "head": {
+            "pitch": 55,
+            "fov": 70,
+            "near": 0.02
+          }
+        },
+        "run": {
+          "controlHz": 20,
+          "observationHz": 10
+        }
+      },
+      "calibration": {
+        "width": 320,
+        "height": 240,
+        "intrinsics": [
+          [
+            207.84609690826534,
+            0,
+            160
+          ],
+          [
+            0,
+            207.84609690826534,
+            120
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "cameraToWorld": [
+          0.6500622935722726,
+          1.1102230246251565e-16,
+          -0.7598809212472415,
+          0,
+          -0.697161253728635,
+          0.39782529600426364,
+          -0.5964069249754214,
+          0,
+          0.30229985242317636,
+          0.9174611892931057,
+          0.2586112243615999,
+          0,
+          0.3535533905932738,
+          2.55,
+          0.35355339059327373,
+          1
+        ],
+        "position": [
+          0.3535533905932738,
+          2.55,
+          0.35355339059327373
+        ],
+        "target": [
+          -0.2,
+          0.87,
+          -0.12
+        ],
+        "near": 0.1,
+        "far": 5,
+        "pixelOrigin": "top-left",
+        "pixelCenters": "half-integers",
+        "cameraAxes": "right, up, backward (Three.js); depth is positive optical-axis distance",
+        "depthScaleMeters": 0.001,
+        "depthInvalid": 0
+      }
+    },
+    {
+      "mount": "head",
+      "config": {
+        "environment": {
+          "version": "stackling-v5.4",
+          "physicsHz": 120,
+          "tableSize": 1.1,
+          "tableTop": 0.75,
+          "tableThickness": 0.045,
+          "friction": 0.8,
+          "tableDepth": 0.7,
+          "tableSupport": "sled",
+          "robot": {
+            "base": [
+              -0.28,
+              1.25,
+              -0.55
+            ],
+            "axes": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "links": [
+              0,
+              0.33,
+              0.17,
+              0.12,
+              0.03,
+              0.03
+            ],
+            "limits": [
+              [
+                -3.14,
+                3.14
+              ],
+              [
+                -2.8,
+                2.8
+              ],
+              [
+                0.12,
+                2.9
+              ],
+              [
+                -3.141592653589793,
+                3.141592653589793
+              ],
+              [
+                -4.2,
+                4.2
+              ],
+              [
+                -6.28318530718,
+                6.28318530718
+              ]
+            ],
+            "jointSpeed": 1.2,
+            "toolLength": 0.11,
+            "fingerLength": 0.075,
+            "fingerWidth": 0.008,
+            "fingerDepth": 0.022,
+            "gap": [
+              0.003,
+              0.09
+            ],
+            "home": {
+              "x": -0.28,
+              "y": 0.93,
+              "z": -0.33,
+              "gap": 0.045
+            },
+            "speed": {
+              "x": 0.12,
+              "y": 0.12,
+              "z": 0.12,
+              "gap": 0.1
+            },
+            "homeJoints": [
+              -1.5707963267948966,
+              -2.3484828606799435,
+              2.2003430953059127,
+              0,
+              -0.10186023462596916,
+              -3.141592653589793
+            ],
+            "jointAcceleration": 2.5,
+            "keyboardSpeed": 0.15,
+            "armMotor": {
+              "stiffness": 12000,
+              "damping": 160,
+              "maxTorque": [
+                180,
+                180,
+                180,
+                40,
+                40,
+                40
+              ]
+            },
+            "fingerMotor": {
+              "stiffness": 300,
+              "damping": 20,
+              "maxForce": 30,
+              "couplingStiffness": 600,
+              "couplingDamping": 40
+            },
+            "mount": {
+              "type": "human-scale-upper-body-v1",
+              "column": {
+                "x": 0,
+                "z": -0.6,
+                "width": 0.42,
+                "depth": 0.23,
+                "bottom": 0.8849999999999999,
+                "top": 1.395
+              },
+              "topPlate": {
+                "x": 0,
+                "z": -0.6,
+                "y": 0.0275,
+                "width": 0.38,
+                "depth": 0.34,
+                "thickness": 0.055
+              },
+              "neck": {
+                "x": 0,
+                "z": -0.6,
+                "radius": 0.045,
+                "bottom": 1.395,
+                "top": 1.4200000000000002
+              },
+              "beam": {
+                "from": [
+                  -0.28,
+                  1.25,
+                  -0.66
+                ],
+                "to": [
+                  0.28,
+                  1.25,
+                  -0.66
+                ],
+                "width": 0.045,
+                "height": 0.05
+              }
+            },
+            "visual": {
+              "armRadius": 0.034,
+              "jointRadius": 0.067,
+              "wristRadius": 0.025
+            },
+            "body": {
+              "yawLimit": 0.7,
+              "pitchLimit": 0.5,
+              "speed": 0.35,
+              "acceleration": 0.65,
+              "motor": {
+                "stiffness": 6000000,
+                "damping": 3000,
+                "maxTorque": [
+                  1200,
+                  1200
+                ]
+              },
+              "jerk": 8
+            },
+            "inertials": {
+              "source": "uniform-solids-estimate-v1",
+              "arms": [
+                {
+                  "mass": 0.3,
+                  "centerOfMass": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000263953203,
+                    0.000263953203,
+                    0.000263953203
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 1,
+                  "centerOfMass": [
+                    0.165000007,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000770666695,
+                    0.00739366608,
+                    0.00739366608
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.8,
+                  "centerOfMass": [
+                    0.0850000009,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000616533391,
+                    0.00143493339,
+                    0.00143493339
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.08,
+                  "centerOfMass": [
+                    0.0599999987,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.0000580800006,
+                    0.000125039995,
+                    0.000125039995
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.08,
+                  "centerOfMass": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.0000546133342,
+                    0.0000546133342,
+                    0.0000546133342
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                {
+                  "mass": 0.2,
+                  "centerOfMass": [
+                    0.0474999994,
+                    0,
+                    0
+                  ],
+                  "principalInertia": [
+                    0.000239683344,
+                    0.000240833338,
+                    0.0000396833348
+                  ],
+                  "inertiaFrame": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              ],
+              "finger": {
+                "mass": 0.025,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.00000114166676,
+                  0.0000118520838,
+                  0.0000127270823
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "yaw": {
+                "mass": 1,
+                "centerOfMass": [
+                  0,
+                  0,
+                  0
+                ],
+                "principalInertia": [
+                  0.00144,
+                  0.00144,
+                  0.00144
+                ],
+                "inertiaFrame": [
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "torso": {
+                "mass": 12,
+                "centerOfMass": [
+                  0,
+                  0.332276165,
+                  0.00556142116
+                ],
+                "principalInertia": [
+                  0.181026101,
+                  0.392808259,
+                  0.482119471
+                ],
+                "inertiaFrame": [
+                  -0.0231770463,
+                  -0.0231770463,
+                  0.706726909,
+                  -0.706726789
+                ]
+              }
+            },
+            "jointJerk": 80
+          },
+          "solver": {
+            "iterations": 48,
+            "internalPgsIterations": 16
+          }
+        },
+        "camera": {
+          "position": "SE",
+          "distance": 0.5,
+          "height": 1.8,
+          "target": [
+            -0.2,
+            0.87,
+            -0.12
+          ],
+          "fov": 60,
+          "near": 0.1,
+          "far": 5,
+          "width": 320,
+          "heightPixels": 240,
+          "depth": false,
+          "mount": "head",
+          "head": {
+            "pitch": 55,
+            "fov": 70,
+            "near": 0.02
+          }
+        },
+        "run": {
+          "controlHz": 20,
+          "observationHz": 10
+        }
+      },
+      "calibration": {
+        "width": 320,
+        "height": 240,
+        "intrinsics": [
+          [
+            171.37776080905377,
+            0,
+            160
+          ],
+          [
+            0,
+            171.37776080905377,
+            120
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "cameraToWorld": [
+          -1,
+          1.0031719290535246e-16,
+          -7.024285468436542e-17,
+          0,
+          6.162975822039155e-33,
+          0.5735764363510462,
+          0.8191520442889918,
+          0,
+          1.2246467991473532e-16,
+          0.8191520442889918,
+          -0.573576436351046,
+          0,
+          0,
+          1.5109078491719534,
+          -0.46510569036331945,
+          1
+        ],
+        "position": [
+          0,
+          1.5109078491719534,
+          -0.46510569036331945
+        ],
+        "target": [
+          -1.2246467991473535e-16,
+          0.6917558048829614,
+          0.10847074598772671
+        ],
+        "near": 0.02,
+        "far": 5,
+        "pixelOrigin": "top-left",
+        "pixelCenters": "half-integers",
+        "cameraAxes": "right, up, backward (Three.js); depth is positive optical-axis distance",
+        "depthScaleMeters": 0.001,
+        "depthInvalid": 0
+      }
+    }
+  ]
+}

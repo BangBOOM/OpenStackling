@@ -1,0 +1,45 @@
+{
+  "run": {
+    "controlHz": 10,
+    "observationHz": 10,
+    "maxSeconds": 120
+  },
+  "scene": {
+    "region": [-0.4, 0.4, -0.4, 0.4],
+    "clearance": true,
+    "objects": [
+      {
+        "id": "object-0",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "red",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      },
+      {
+        "id": "object-1",
+        "shape": {
+          "kind": "cuboid",
+          "size": [0.09, 0.09, 0.09]
+        },
+        "color": "yellow",
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "density": 120,
+        "friction": 0.8
+      }
+    ]
+  }
+}

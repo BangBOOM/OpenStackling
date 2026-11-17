@@ -1,0 +1,165 @@
+{
+  "base": [-0.28, 1.25, -0.55],
+  "axes": [
+    [0, 1, 0],
+    [0, 0, 1],
+    [0, 0, 1],
+    [1, 0, 0],
+    [0, 0, 1],
+    [1, 0, 0]
+  ],
+  "links": [0, 0.33, 0.17, 0.12, 0.03, 0.03],
+  "limits": [
+    [-3.14, 3.14],
+    [-2.8, 2.8],
+    [0.12, 2.9],
+    [-3.141592653589793, 3.141592653589793],
+    [-4.2, 4.2],
+    [-6.28318530718, 6.28318530718]
+  ],
+  "jointSpeed": 1.2,
+  "toolLength": 0.11,
+  "fingerLength": 0.075,
+  "fingerWidth": 0.008,
+  "fingerDepth": 0.022,
+  "gap": [0.003, 0.09],
+  "home": {
+    "x": -0.28,
+    "y": 0.93,
+    "z": -0.33,
+    "gap": 0.045
+  },
+  "speed": {
+    "x": 0.12,
+    "y": 0.12,
+    "z": 0.12,
+    "gap": 0.1
+  },
+  "homeJoints": [
+    -1.5707963267948966, -2.3484828606799435, 2.2003430953059127, 0, -0.10186023462596916,
+    -3.141592653589793
+  ],
+  "jointAcceleration": 2.5,
+  "keyboardSpeed": 0.15,
+  "armMotor": {
+    "stiffness": 12000,
+    "damping": 160,
+    "maxTorque": [180, 180, 180, 40, 40, 40]
+  },
+  "fingerMotor": {
+    "stiffness": 300,
+    "damping": 20,
+    "maxForce": 30,
+    "couplingStiffness": 600,
+    "couplingDamping": 40
+  },
+  "mount": {
+    "type": "human-scale-upper-body-v1",
+    "column": {
+      "x": 0,
+      "z": -0.6,
+      "width": 0.42,
+      "depth": 0.23,
+      "bottom": 0.8849999999999999,
+      "top": 1.395
+    },
+    "topPlate": {
+      "x": 0,
+      "z": -0.6,
+      "y": 0.0275,
+      "width": 0.38,
+      "depth": 0.34,
+      "thickness": 0.055
+    },
+    "neck": {
+      "x": 0,
+      "z": -0.6,
+      "radius": 0.045,
+      "bottom": 1.395,
+      "top": 1.4200000000000002
+    },
+    "beam": {
+      "from": [-0.28, 1.25, -0.66],
+      "to": [0.28, 1.25, -0.66],
+      "width": 0.045,
+      "height": 0.05
+    }
+  },
+  "visual": {
+    "armRadius": 0.034,
+    "jointRadius": 0.067,
+    "wristRadius": 0.025
+  },
+  "body": {
+    "yawLimit": 0.7,
+    "pitchLimit": 0.5,
+    "speed": 0.35,
+    "acceleration": 0.65,
+    "motor": {
+      "stiffness": 6000000,
+      "damping": 3000,
+      "maxTorque": [1200, 1200]
+    },
+    "jerk": 8
+  },
+  "inertials": {
+    "source": "uniform-solids-estimate-v1",
+    "arms": [
+      {
+        "mass": 0.3,
+        "centerOfMass": [0, 0, 0],
+        "principalInertia": [0.000263953203, 0.000263953203, 0.000263953203],
+        "inertiaFrame": [0, 0, 0, 1]
+      },
+      {
+        "mass": 1,
+        "centerOfMass": [0.165000007, 0, 0],
+        "principalInertia": [0.000770666695, 0.00739366608, 0.00739366608],
+        "inertiaFrame": [0, 0, 0, 1]
+      },
+      {
+        "mass": 0.8,
+        "centerOfMass": [0.0850000009, 0, 0],
+        "principalInertia": [0.000616533391, 0.00143493339, 0.00143493339],
+        "inertiaFrame": [0, 0, 0, 1]
+      },
+      {
+        "mass": 0.08,
+        "centerOfMass": [0.0599999987, 0, 0],
+        "principalInertia": [5.80800006e-5, 0.000125039995, 0.000125039995],
+        "inertiaFrame": [0, 0, 0, 1]
+      },
+      {
+        "mass": 0.08,
+        "centerOfMass": [0, 0, 0],
+        "principalInertia": [5.46133342e-5, 5.46133342e-5, 5.46133342e-5],
+        "inertiaFrame": [0, 0, 0, 1]
+      },
+      {
+        "mass": 0.2,
+        "centerOfMass": [0.0474999994, 0, 0],
+        "principalInertia": [0.000239683344, 0.000240833338, 3.96833348e-5],
+        "inertiaFrame": [0, 0, 0, 1]
+      }
+    ],
+    "finger": {
+      "mass": 0.025,
+      "centerOfMass": [0, 0, 0],
+      "principalInertia": [1.14166676e-6, 1.18520838e-5, 1.27270823e-5],
+      "inertiaFrame": [0, 0, 0, 1]
+    },
+    "yaw": {
+      "mass": 1,
+      "centerOfMass": [0, 0, 0],
+      "principalInertia": [0.00144, 0.00144, 0.00144],
+      "inertiaFrame": [0, 0, 0, 1]
+    },
+    "torso": {
+      "mass": 12,
+      "centerOfMass": [0, 0.332276165, 0.00556142116],
+      "principalInertia": [0.181026101, 0.392808259, 0.482119471],
+      "inertiaFrame": [-0.0231770463, -0.0231770463, 0.706726909, -0.706726789]
+    }
+  },
+  "jointJerk": 80
+}

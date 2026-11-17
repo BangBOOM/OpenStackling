@@ -1,0 +1,9 @@
+{
+  "run": {
+    "maxSeconds": 120
+  },
+  "scene": {
+    "region": [-0.55, 0.55, -0.55, 0.55],
+    "clearance": false
+  }
+}
