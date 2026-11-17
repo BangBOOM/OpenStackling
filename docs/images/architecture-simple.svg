@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-labelledby="title description">
 <title id="title">Stackling — simulation and learning architecture</title>
-<desc id="description">CLI starts the shared Bun runtime with native Rust physics workers. Execution contains Runner and Controller; World is the conceptual environment containing Scene, Task, Three.js sensors and Rapier physics. Execution sends absolute actions to World and receives observations and results. Below the runtime, Trace records observations, actions and results and supplies actions for replay. Policy exchanges observations and actions with Execution. Planned Training consumes traces and produces model weights for Policy; both training links and its box are dashed because training is not implemented in this branch. World here denotes the complete environment, not the world source module.</desc>
+<desc id="description">CLI starts the shared Bun runtime with native Rust physics workers. Execution contains Runner and Controller; World is the conceptual environment containing Scene, Task, Three.js sensors and Rapier physics. Execution sends absolute actions to World and receives observations and results. Below the runtime, Trace records observations, actions and results and supplies actions for replay. Policy exchanges observations and actions with Execution. Training consumes traces and produces model weights for Policy, with an included VLA implementation in vla/. World here denotes the complete environment, not the world source module.</desc>
 <style>
 text{font-family:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,'DejaVu Sans Mono',monospace;font-size:12px;fill:#131820}
 .title{font-family:Archivo,'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.08em}
 .name{font-size:13px;font-weight:500}.mut{fill:#69737F;font-size:10.5px}.small{font-size:10.5px}.purple{fill:#42509F}.amber{fill:#96590F}
 .box{fill:#FFFFFF;stroke:#C2C9D4;stroke-width:1.2}.strip{fill:#EAEEF4;stroke:#C2C9D4;stroke-width:1.2}
-.runtime{fill:#EAECF8;stroke:#42509F;stroke-width:1.4}.learning{fill:#F7EEDF;stroke:#96590F;stroke-width:1.4}.planned-box{fill:#FFFFFF;stroke:#96590F;stroke-width:1.4}
+.runtime{fill:#EAECF8;stroke:#42509F;stroke-width:1.4}.learning{fill:#F7EEDF;stroke:#96590F;stroke-width:1.4}
 .dash{stroke-dasharray:4 4}.flow,.control,.policy{fill:none;stroke-width:1.4}.flow{stroke:#3F4956}.control{stroke:#42509F}.policy{stroke:#96590F}.rule{stroke:#C2C9D4;stroke-width:1.2}
 </style>
 <defs>
@@ -71,13 +71,13 @@ text{font-family:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,'DejaVu S
 <rect x="90" y="637" width="260" height="32" rx="3" class="strip"/>
 <text x="220" y="657" text-anchor="middle" class="small">Config · seeds · provenance</text>
 
-<rect x="470" y="540" width="280" height="148" rx="5" class="planned-box dash"/>
+<rect x="470" y="540" width="280" height="148" rx="5" class="box"/>
 <text x="490" y="566" class="name">Training</text>
-<text x="730" y="566" text-anchor="end" class="small amber">PLANNED</text>
+<text x="730" y="566" text-anchor="end" class="small amber">VLA</text>
 <text x="490" y="592" class="mut">Learn from collected traces</text>
 <text x="490" y="613" class="mut">Produce model weights</text>
 <path d="M490 634H730" class="rule"/>
-<text x="490" y="657" class="mut">Not implemented in this branch</text>
+<text x="490" y="657" class="mut">Included implementation: vla/</text>
 
 <rect x="850" y="540" width="280" height="148" rx="5" class="box"/>
 <text x="870" y="566" class="name">Policy</text>
@@ -95,11 +95,11 @@ text{font-family:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,'DejaVu S
 <text x="705" y="397" text-anchor="middle" class="small">Observations ⇄ actions</text>
 <text x="705" y="434" text-anchor="middle" class="mut">WebSocket · optional policy connection</text>
 
-<path d="M370 610H470" class="policy dash" marker-end="url(#amber)"/>
+<path d="M370 610H470" class="policy" marker-end="url(#amber)"/>
 <text x="420" y="597" text-anchor="middle" class="mut">traces</text>
-<path d="M750 610H850" class="policy dash" marker-end="url(#amber)"/>
+<path d="M750 610H850" class="policy" marker-end="url(#amber)"/>
 <text x="800" y="597" text-anchor="middle" class="mut">weights</text>
 
-<text x="40" y="731" class="mut">Solid flows: implemented interfaces · dashed Training box and links: planned</text>
+<text x="40" y="731" class="mut">Training: vla/ · serving: policy/</text>
 <text x="1160" y="731" text-anchor="end" class="mut">Conceptual architecture</text>
 </svg>
